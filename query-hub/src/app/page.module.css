@@ -1,9 +1,9 @@
-
 .main {
   display: flex;
-font-size: 60px;
+  font-size: 60px;
   justify-content: center;
   align-items: center;
-  height: 100vh;  
+  height: 100;
   color: #fff;
+  padding-top: 190px;
 }
