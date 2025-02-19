@@ -3,6 +3,7 @@ import { FC } from "react";
 import styles from "./header.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import type { NavigationLink } from "./types";
 
 export const Header: FC = () => {
   return (
@@ -28,10 +29,7 @@ const Navigation = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const NavigationLink: FC<{ children: React.ReactNode; href: string }> = ({
-  children,
-  href,
-}) => {
+const NavigationLink = ({ children, href }: NavigationLink) => {
   return (
     <li>
       <Link href={href}> {children}</Link>
@@ -39,7 +37,7 @@ const NavigationLink: FC<{ children: React.ReactNode; href: string }> = ({
   );
 };
 
-const NavigationAuth: FC = () => {
+const NavigationAuth = () => {
   const isLoggedIn = false;
   return isLoggedIn ? (
     <button aria-label="Logout" onClick={() => console.log("logout")}>
@@ -52,7 +50,6 @@ const NavigationAuth: FC = () => {
     </>
   );
 };
-
 
 Navigation.Main = NavigationLink;
 Navigation.Catalog = NavigationLink;
