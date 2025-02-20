@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { NavigationLink } from "./types";
 import { useContext } from "react";
 import { AuthContext } from "@/context/authProvider";
+import { authService } from "@/firebase/firebaseAuth";
 
 export const Header = () => {
   return (
@@ -39,10 +40,10 @@ const NavigationLink = ({ children, href }: NavigationLink) => {
 };
 
 const NavigationAuth = () => {
-  const { isLoggedIn} = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
 
   return isLoggedIn ? (
-    <button aria-label="Logout" onClick={() => console.log("logout")}>
+    <button aria-label="Logout" onClick={() => authService.logoutUser()}>
       Logout
     </button>
   ) : (

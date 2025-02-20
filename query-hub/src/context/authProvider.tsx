@@ -1,6 +1,6 @@
 "use client";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "@/firebase/firebaseСonfig";
+import { auth } from "@/firebase/firebaseConfig";
 import { createContext } from "react";
 
 interface AuthContextValue {
