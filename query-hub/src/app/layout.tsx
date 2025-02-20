@@ -3,6 +3,7 @@ import "./normalize.css";
 import "./globals.css";
 import { Header } from "@/components/Header/Header";
 import dynamic from "next/dynamic";
+import { AuthProvider } from "@/context/authProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,9 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Particles />
-        <Header />
-        {children}
+        <AuthProvider>
+          <Particles />
+          <Header />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

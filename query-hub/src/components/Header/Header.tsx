@@ -1,11 +1,12 @@
 "use client";
-import { FC } from "react";
 import styles from "./header.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import type { NavigationLink } from "./types";
+import { useContext } from "react";
+import { AuthContext } from "@/context/authProvider";
 
-export const Header: FC = () => {
+export const Header = () => {
   return (
     <header className={styles.header}>
       <Link href="/">
@@ -38,7 +39,8 @@ const NavigationLink = ({ children, href }: NavigationLink) => {
 };
 
 const NavigationAuth = () => {
-  const isLoggedIn = false;
+  const { isLoggedIn} = useContext(AuthContext);
+
   return isLoggedIn ? (
     <button aria-label="Logout" onClick={() => console.log("logout")}>
       Logout
